@@ -1,0 +1,202 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "version": "1.0.0",
+        "title": "Application API",
+        "description": "Application API",
+        "license": {
+            "name": "MIT",
+            "url": "https://opensource.org/licenses/MIT"
+        }
+    },
+    "host": "localhost:3000",
+    "basePath": "/api/v1",
+    "tags": [
+        {
+            "name": "Posts",
+            "description": "API for posts in the system"
+        },
+        {
+            "name": "Tags",
+            "description": "API for tags in the system"
+        }
+    ],
+    "schemes": [
+        "http"
+    ],
+    "consumes": [
+        "application/json"
+    ],
+    "produces": [
+        "application/json"
+    ],
+    "paths": {
+        "/posts": {
+            "post": {
+                "tags": [
+                    "Posts"
+                ],
+                "summary": "Create a Post",
+                "parameters": [
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "type": "object",
+                        "required": true,
+                        "description": "Post",
+                        "properties": {
+                            "full_name": {
+                                "type": "string",
+                                "example": "israel israeli"
+                            },
+                            "email": {
+                                "type": "string",
+                                "example": "test@gmail.com"
+                            },
+                            "profession": {
+                                "type": "string",
+                                "example": "profession"
+                            },
+                            "institution": {
+                                "type": "string",
+                                "example": "institution"
+                            },
+                            "country": {
+                                "type": "string",
+                                "example": "IL"
+                            },
+                            "parent_post_id": {
+                                "type": "string",
+                                "example": null
+                            },
+                            "subject": {
+                                "type": "string",
+                                "example": "subject"
+                            },
+                            "content": {
+                                "type": "content",
+                                "example": "bla bla"
+                            },
+                            "category": {
+                                "type": "content",
+                                "example": "category"
+                            }
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/Posts"
+                        }
+                    }
+                }
+            },
+            "get": {
+                "tags": [
+                    "Posts"
+                ],
+                "summary": "Get posts",
+                "parameters": [
+                    {
+                        "name": "limit",
+                        "in": "query",
+                        "required": false,
+                        "type": "string",
+                        "description": "default = null"
+                    },
+                    {
+                        "name": "offset",
+                        "in": "query",
+                        "required": false,
+                        "type": "string",
+                        "description": "default = 0"
+                    },
+                    {
+                        "name": "order_by",
+                        "in": "query",
+                        "required": false,
+                        "type": "string",
+                        "description": "default = 'date_published'"
+                    },
+                    {
+                        "name": "parent_id",
+                        "in": "query",
+                        "required": false,
+                        "type": "string",
+                        "description": "default = null, if parent_id exist will return the comments of the post"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/Posts"
+                        }
+                    }
+                }
+            }
+        },
+        "/tags": {
+            "get": {
+                "tags": [
+                    "Tags"
+                ],
+                "summary": "Get tags by post id",
+                "parameters": [
+                    {
+                        "name": "post_id",
+                        "in": "query",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/Posts"
+                        }
+                    }
+                }
+            }
+        },
+        "/search": {
+            "post": {
+                "tags": [
+                    "Posts"
+                ],
+                "summary": "Search posts in system",
+                "parameters": [
+                    {
+                        "name": "text",
+                        "in": "body",
+                        "type": "object",
+                        "required": true,
+                        "description": "Text",
+                        "properties": {
+                            "text": {
+                                "type": "string",
+                                "example": "bla bla"
+                            }
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/Posts"
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "Posts": {
+            "type": "object"
+        }
+    }
+}

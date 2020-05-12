@@ -1,0 +1,4 @@
+id,subject,country,date_published,parent_post_id,cmt_level,institution,fullname,email,sent_id,sentence
+67736,Covid-19,ES,2020-03-20 12:38:00,67195,Unknown,Anonymous,Unknown,0,"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+67736,Covid-19,ES,2020-03-20 12:38:00,67195,Unknown,Anonymous,Unknown,1,"Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+67736,Covid-19,ES,2020-03-20 12:38:00,67195,Unknown,Anonymous,Unknown,2,"Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore."
